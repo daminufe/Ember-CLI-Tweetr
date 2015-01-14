@@ -1,7 +1,8 @@
 import Ember from "ember";
 
 var ApplicationController = {
-	name: "David Ferreira"
+	userName: "David Ferreira",
+	userEmail: "daminufe.ti@gmail.com"
 };
 
 export default Ember.ObjectController.extend(ApplicationController);

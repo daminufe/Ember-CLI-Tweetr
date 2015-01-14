@@ -6,7 +6,7 @@
                 {{partial 'tweet/add'}}
                 <div class="row">
 			        <div class="large-2 columns small-3">
-			            <img src="http://placehold.it/80x80&text=[img]"/>
+			            {{gravatar-image email=userEmail size=80}}
 			        </div>
 			        <div class="large-10 columns">
 			            <p><strong>{{emailField}} said:</strong> {{tweetField}}</p>
@@ -26,7 +26,7 @@
 
     <div class="row">
         <div class="large-2 columns small-3">
-            <img src="http://placehold.it/80x80&text=[img]"/>
+            {{gravatar-image email=userEmail size=80}}
         </div>
         <div class="large-10 columns">
             <p><strong>@username said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
