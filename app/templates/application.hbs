@@ -5,7 +5,7 @@
         </div>
 
         <div class="search">
-            <input type="text" placeholder="Type to search" />
+            {{input value=searchQuery action='searchAction' placeholder="Type to search"}}
         </div>
     </div>
 </div>
@@ -17,7 +17,7 @@
             <h5> {{userName}} </h5>
             <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
                 <section class="section">
-                    {{#link-to 'index'}}Latest tweets{{/link-to}}
+                    {{#link-to 'index'}}Home{{/link-to}}
                 </section>
             </div>
         </div>
@@ -29,16 +29,16 @@
  
 <footer class="row">
   <div class="large-12 columns">
-  <hr/>
-  <div class="row">
-  <div class="large-5 columns">
-  <p>2001 - 2015 &copy; Tweetr</p>
-  </div>
-  <div class="large-7 columns">
-  <ul class="inline-list right">
-  <li>{{#link-to 'index'}}Latest tweets{{/link-to}}</li>
-  </ul>
-  </div>
-  </div>
+      <hr/>
+      <div class="row">
+          <div class="large-5 columns">
+            <p>2001 - 2015 &copy; Tweetr</p>
+          </div>
+          <div class="large-7 columns">
+              <ul class="inline-list right">
+                <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+              </ul>
+          </div>
+      </div>
   </div>
 </footer>
