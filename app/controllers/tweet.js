@@ -2,8 +2,6 @@ import Ember from "ember";
 
 var TweetController = {
 	isAdding: false,
-	emailField: null,
-	tweetField: null,
 	actions: {
 		add: function() {
 			this.set('isAdding', true);
