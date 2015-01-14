@@ -9,14 +9,14 @@
 			            {{gravatar-image email=emailField size=80}}
 			        </div>
 			        <div class="large-10 columns">
-			            <p><strong>{{emailField}} said:</strong> {{tweetField}}</p>
+			            <p><strong>{{emailField}} is gonna say:</strong> {{tweetField}}</p>
 			        </div>
 			    </div>
 			     
 			    <hr/>
-                <button {{action 'doneAdd'}}>Done</button>
+                <button {{action 'postTweet'}}>Post Tweet</button>
             {{else}}
-                <button {{action 'add'}}>Add Tweet</button>
+                <button {{action 'addTweet'}}>Add Tweet</button>
             {{/if}}
         </div>
     </div>

@@ -1,7 +1,10 @@
-<div>
-	{{input type="text" value=emailField placeholder="your-email@example.org"}}
-</div>
 
-<div>
-	{{input type="text" value=tweetField placeholder="Share your toughs" maxlength=140}}
-</div>
+
+	<div>
+		{{input type="text" value=emailField placeholder="your-email@example.org"}}
+	</div>
+
+	<div>
+		{{input type="text" value=tweetField placeholder="Share your toughs" maxlength=140 action="tweetLimitReached" on="key-press"}}
+	</div>
+

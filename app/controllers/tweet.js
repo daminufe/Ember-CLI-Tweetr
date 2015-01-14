@@ -3,17 +3,20 @@ import Ember from "ember";
 var TweetController = {
 	isAdding: false,
 	actions: {
-		add: function() {
+		addTweet: function() {
 			this.set('isAdding', true);
 		},
 
-		doneAdd: function() {
+		postTweet: function() {
 			this.set('isAdding', false);
 		}, 
 
 		tweetLimitReached: function() {
-			this.get('tweetField').length;
-		}.observes('tweetField')
+			if (this.get('tweetField').length == 140) {
+				// TODO: Modify to do something more fancy
+				alert('Maximum amount of characters reached');
+			}
+		}//.observes('tweetField')
 	}
 };
 
