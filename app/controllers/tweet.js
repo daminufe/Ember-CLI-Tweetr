@@ -9,6 +9,8 @@ var TweetController = {
 
 		postTweet: function() {
 			this.set('isAdding', false);
+			this.get('store').commit();
+			this.get('target.router').transitionTo('index');
 		}, 
 
 		tweetLimitReached: function() {
@@ -16,7 +18,7 @@ var TweetController = {
 				// TODO: Modify to do something more fancy
 				alert('Maximum amount of characters reached');
 			}
-		}//.observes('tweetField')
+		}
 	}
 };
 
