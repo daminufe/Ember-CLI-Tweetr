@@ -2,6 +2,10 @@
 
 module.exports = function(environment) {
   var ENV = {
+    contentSecurityPolicy: {
+      'connect-src': "'self'",
+      'img-src': "'self' www.gravatar.com"
+    },
     modulePrefix: 'tweetr',
     environment: environment,
     baseURL: '/',
