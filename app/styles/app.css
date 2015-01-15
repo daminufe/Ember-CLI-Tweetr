@@ -2595,3 +2595,9 @@ th.hide-for-touch {
     display: table-cell !important; } }
 
 /*# sourceMappingURL=foundation.css.map */
+
+span.timeago {
+	font-size: 10px;
+	font-style: italic;
+	color: #8f8f8f;
+}

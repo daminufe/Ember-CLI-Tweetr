@@ -14,7 +14,7 @@
 			    </div>
 			     
 			    <hr/>
-                <button {{action 'postTweet'}}>Post Tweet</button>
+                <button type="submit" {{action 'postTweet'}}>Post Tweet</button>
             {{else}}
                 <button {{action 'addTweet'}}>Add Tweet</button>
             {{/if}}
@@ -29,7 +29,7 @@
                 {{gravatar-image email=item.email size=80}}
             </div>
             <div class="large-10 columns">
-                <p><strong>{{item.email}} said:</strong> {{item.content}} <span>{{format-date item.created}}</span></p>
+                <p><strong>{{item.email}} said:</strong> {{item.content}} <span class='timeago'> - {{format-date item.created}}</span></p>
             </div>
         </div>
          
