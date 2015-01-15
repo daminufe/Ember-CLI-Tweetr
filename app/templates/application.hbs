@@ -1,12 +1,13 @@
 <div class="row">
     <div class="large-12 columns">
         <div class="panel">
-            <h1>Tweetr</h1>
+            <h1 class="logo">Tweetr</h1>
+            <div class="search-box">
+                {{input value=searchQuery action='searchAction' placeholder="Type to search"}}
+            </div>
         </div>
 
-        <div class="search">
-            {{input value=searchQuery action='searchAction' placeholder="Type to search"}}
-        </div>
+        
     </div>
 </div>
  
@@ -17,7 +18,9 @@
             <h5> {{userName}} </h5>
             <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
                 <section class="section">
-                    {{#link-to 'index'}}Home{{/link-to}}
+                    {{#unless isAdding}}
+                        <button {{action 'addTweet'}}>Add Tweet</button>
+                    {{/unless}}
                 </section>
             </div>
         </div>

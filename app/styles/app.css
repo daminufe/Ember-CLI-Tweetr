@@ -2601,3 +2601,18 @@ span.timeago {
 	font-style: italic;
 	color: #8f8f8f;
 }
+
+div.panel h1.logo {
+	display: inline-block;
+    width: 400px;
+}
+
+div.search-box {
+    display: inline-block;
+    position: relative;
+    top: 14px;
+    width: 470px;
+}
+
+
+
