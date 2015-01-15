@@ -2,6 +2,8 @@ import Ember from "ember";
 
 var TweetController = {
 	isAdding: false,
+	emailField: '',
+	tweetField: '',
 	actions: {
 		addTweet: function() {
 			this.set('isAdding', true);
@@ -9,12 +11,16 @@ var TweetController = {
 
 		postTweet: function() {
 			this.set('isAdding', false);
-			this.get('store').commit();
-			this.get('target.router').transitionTo('index');
+			var newTweet = this.store.createRecord('tweet', {
+				email: this.get('emailField'),
+				content: this.get('tweetField')
+			});
+
+			newTweet.save();
 		}, 
 
 		tweetLimitReached: function() {
-			if (this.get('tweetField').length == 140) {
+			if (this.get('tweetField').length === 140) {
 				// TODO: Modify to do something more fancy
 				alert('Maximum amount of characters reached');
 			}
