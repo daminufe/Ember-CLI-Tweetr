@@ -1,11 +1,11 @@
 import Ember from "ember";
 
 var ApplicationController = {
-	userName: "David Ferreira",
-	userEmail: "daminufe.ti@gmail.com",
+	userName: "",
+	userEmail: "",
 	needs: ["tweet"],
 	isAdding: Ember.computed.alias('controllers.tweet.isAdding'),
-	isEditingUserData: false,
+	isEditingUserData: true,
 	actions: {
 		addTweetBtn: function() {
 			this.get('controllers.tweet').send('addTweet');
