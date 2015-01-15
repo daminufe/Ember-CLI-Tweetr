@@ -13,16 +13,16 @@
 			        </div>
 			    </div>
 			     
-			    <hr/>
-                <button type="submit" {{action 'postTweet'}}>Post Tweet</button>
-            {{else}}
-                <button {{action 'addTweet'}}>Add Tweet</button>
+                <div class="tweet-actions">
+                    <button class="cancel-tweet" {{action 'cancelTweet'}}>Close</button>
+                    <button type="submit" {{action 'postTweet'}} {{bind-attr disabled=isNotValidTweet}}>Post Tweet</button>
+                </div>
+
+                <hr/>
             {{/if}}
         </div>
     </div>
      
-    <hr/>
-
     {{#each item in model}}
         <div class="row">
             <div class="large-2 columns small-3">

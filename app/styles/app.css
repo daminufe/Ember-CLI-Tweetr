@@ -2614,5 +2614,10 @@ div.search-box {
     width: 470px;
 }
 
+div.tweet-actions {
+	text-align: right;
+}
 
-
+button.cancel-tweet {
+	background-color: #df5b5b;
+}

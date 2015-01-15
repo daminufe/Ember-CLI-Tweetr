@@ -14,17 +14,43 @@
 <div class="row">
     <div class="large-3 columns ">
         <div class="panel">
-            <a href="#">{{gravatar-image email=userEmail size=250}}</a>
+            {{gravatar-image email=userEmail size=250}}
             <h5> {{userName}} </h5>
+
             <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
                 <section class="section">
-                    {{#unless isAdding}}
-                        <button {{action 'addTweet'}}>Add Tweet</button>
-                    {{/unless}}
+                    <button {{action 'editUserDetails'}}>Edit Details</button>
+
+                    {{#if isAdding}}
+                        <button class="cancel-tweet" {{action 'cancelTweetBtn'}}>Cancel</button>
+                    {{else}}
+                        <button {{action 'addTweetBtn'}}>Add Tweet</button>
+                    {{/if}}
+
                 </section>
             </div>
         </div>
     </div>
+
+    {{#if isEditingUserData}}
+      <div class="large-9 columns">
+        <div class="row">
+            <div class="large-10 columns">
+              <div>
+                Name: {{input type="text" value=userName placeholder="Your Name"}}
+              </div>
+
+              <div>
+                Email: {{input type="text" value=userEmail placeholder="your-email@example.org"}}
+              </div>
+
+              <div class="user-edit-actions">
+                  <button {{action 'doneUserDetails'}}>Done</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    {{/if}}
 
     {{outlet}}
      
@@ -36,11 +62,6 @@
       <div class="row">
           <div class="large-5 columns">
             <p>2001 - 2015 &copy; Tweetr</p>
-          </div>
-          <div class="large-7 columns">
-              <ul class="inline-list right">
-                <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-              </ul>
           </div>
       </div>
   </div>

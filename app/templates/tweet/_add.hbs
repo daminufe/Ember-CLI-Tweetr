@@ -1,9 +1,9 @@
 <form {{action 'postTweet' on="submit"}}>
 	<div>
-		{{input type="text" value=emailField placeholder="your-email@example.org"}}
+		{{input type="text" value=emailField placeholder="your-email@example.org" action="checkEmailField" on="key-press"}}
 	</div>
 
 	<div>
-		{{input type="text" value=tweetField placeholder="Share your toughs" maxlength=140 action="tweetLimitReached" on="key-press"}}
+		{{input type="text" value=tweetField placeholder="Share your toughs" maxlength=140 action="checkTweetField" on="key-press"}}
 	</div>
 </form>
