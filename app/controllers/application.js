@@ -1,11 +1,11 @@
 import Ember from "ember";
 
 var ApplicationController = {
-	userName: "",
-	userEmail: "",
+	userName: Ember.$.cookie("userName") || "",
+	userEmail: Ember.$.cookie("userEmail") || "",
 	needs: ["tweet"],
 	isAdding: Ember.computed.alias('controllers.tweet.isAdding'),
-	isEditingUserData: true,
+	isEditingUserData: false,
 	actions: {
 		addTweetBtn: function() {
 			this.get('controllers.tweet').send('addTweet');
@@ -20,6 +20,9 @@ var ApplicationController = {
 		},
 		
 		doneUserDetails: function() {
+			Ember.$.cookie("userName", this.get('userName'));
+			Ember.$.cookie("userEmail", this.get('userEmail'));
+
 			this.set('isEditingUserData', false);
 		}
 	}
