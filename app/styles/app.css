@@ -2621,3 +2621,7 @@ div.tweet-actions {
 button.cancel-tweet {
 	background-color: #df5b5b;
 }
+
+div.vertical-nav button {
+	width: 179px;
+}
