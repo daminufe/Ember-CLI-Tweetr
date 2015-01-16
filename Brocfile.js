@@ -18,5 +18,7 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 app.import('bower_components/moment/min/moment.min.js')
+app.import('bower_components/jquery-cookie/jquery.cookie.js')
+
 
 module.exports = app.toTree();
