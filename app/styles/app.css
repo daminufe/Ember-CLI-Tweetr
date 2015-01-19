@@ -2625,3 +2625,7 @@ button.cancel-tweet {
 div.vertical-nav button {
 	width: 179px;
 }
+
+div.panel.search-terms {
+	text-align: right;
+}

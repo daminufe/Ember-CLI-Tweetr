@@ -3,9 +3,15 @@
         <div class="panel">
             <h1 class="logo">Tweetr</h1>
             <div class="search-box">
-                {{input value=searchQuery action='searchAction' placeholder="Type to search"}}
+                {{input value=searchQuery placeholder="Type to search"}}
             </div>
         </div>
+
+        {{#if hasSearchQuery}}
+          <div class="panel search-terms">
+              <b>Search results for {{searchType}}:</b> <i>"{{searchQuery}}"</i>
+          </div>
+        {{/if}}
 
         
     </div>
