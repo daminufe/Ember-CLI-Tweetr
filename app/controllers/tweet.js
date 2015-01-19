@@ -3,7 +3,7 @@ import Ember from "ember";
 var TweetController = {
 	needs: ['application'],
 	sorting: ['created:desc'],
-	sortedContent: Em.computed.sort('@this', 'sorting'),
+	sortedContent: Ember.computed.sort('@this', 'sorting'),
 	userName: Ember.computed.alias('controllers.application.userName'),
 	userEmail: Ember.computed.alias('controllers.application.userEmail'),
 	isAdding: false,
@@ -14,7 +14,6 @@ var TweetController = {
 	tweetField: '',
 	actions: {
 		addTweet: function() {
-
 			this.set('isAdding', true);
 		},
 
@@ -26,7 +25,8 @@ var TweetController = {
 			this.set('isAdding', false);
 			var newTweet = this.store.createRecord('tweet', {
 				email: this.get('emailField'),
-				content: this.get('tweetField')
+				content: this.get('tweetField'),
+				created: (new Date()).toISOString()
 			});
 
 			newTweet.save();
