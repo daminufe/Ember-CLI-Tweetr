@@ -38,14 +38,18 @@ var ApplicationController = {
 
 		if (query.length > 0) {
 			this.set('hasSearchQuery', true);
+			
 			var isEmail = (new RegExp(/[^@]+@[^@]+\.[^@]+/)).test(this.get('searchQuery'));
 			var filterField = isEmail ? 'email' : 'content';
+			
 			this.set('searchType', filterField);
 			
 			var tweetFilter = model.filterBy(filterField, query);
-			this.set('controllers.tweet.model', tweetFilter);
+			if (tweetFilter.length > 0) {
+				this.set('controllers.tweet.model', tweetFilter);
+			}
 		} else {
-			this.set('controllers.tweet.model', originalTweets);
+			this.set('controllers.tweet.model', this.store.all('tweet'));
 			this.set('hasSearchQuery', false);
 
 		}
