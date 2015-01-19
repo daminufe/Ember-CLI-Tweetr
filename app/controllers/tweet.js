@@ -2,8 +2,8 @@ import Ember from "ember";
 
 var TweetController = {
 	needs: ['application'],
-	sorting: ['created:desc'],
-	sortedContent: Ember.computed.sort('@this', 'sorting'),
+	sortProperties: ['created'],
+	sortAscending: false,
 	userName: Ember.computed.alias('controllers.application.userName'),
 	userEmail: Ember.computed.alias('controllers.application.userEmail'),
 	isAdding: false,

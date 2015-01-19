@@ -31,15 +31,20 @@ var ApplicationController = {
 	},
 	searchAction: function() {
 		var query = this.get('searchQuery');
+		var model = this.get('controllers.tweet.model');
 
 		if (query.length > 0) {
 			this.set('hasSearchQuery', true);
 			var isEmail = (new RegExp(/[^@]+@[^@]+\.[^@]+/)).test(this.get('searchQuery'));
 			var filterField = isEmail ? 'email' : 'content';
 			this.set('searchType', filterField);
-			Ember.computed.filterBy('model', filterField, this.get('searchQuery'));
+			
+			var tweetFilter = model.filterBy(filterField, this.get('searchQuery'));
+			this.set('controllers.tweet.model', tweetFilter);
 		} else {
+			model.clear();
 			this.set('hasSearchQuery', false);
+
 		}
 
 	}.observes('searchQuery')
