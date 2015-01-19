@@ -41,13 +41,20 @@ var ApplicationController = {
 			
 			var isEmail = (new RegExp(/[^@]+@[^@]+\.[^@]+/)).test(this.get('searchQuery'));
 			var filterField = isEmail ? 'email' : 'content';
-			
-			this.set('searchType', filterField);
-			
-			var tweetFilter = model.filterBy(filterField, query);
-			if (tweetFilter.length > 0) {
-				this.set('controllers.tweet.model', tweetFilter);
+			var result;
+
+			if (isEmail) {
+				result = this.store.find('tweet', { e: query });
+			} else {
+				result = this.store.find('tweet', { q: query });
 			}
+
+			var that = this;
+			result.then(function(tweets) {
+				that.set('controllers.tweet.model', tweets);
+			});
+
+			this.set('searchType', filterField);
 		} else {
 			this.set('controllers.tweet.model', this.store.all('tweet'));
 			this.set('hasSearchQuery', false);
