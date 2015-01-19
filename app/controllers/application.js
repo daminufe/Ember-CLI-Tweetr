@@ -1,5 +1,7 @@
 import Ember from "ember";
 
+var originalTweets;
+
 var ApplicationController = {
 	userName: Ember.$.cookie("userName") || "",
 	userEmail: Ember.$.cookie("userEmail") || "",
@@ -32,6 +34,7 @@ var ApplicationController = {
 	searchAction: function() {
 		var query = this.get('searchQuery');
 		var model = this.get('controllers.tweet.model');
+		originalTweets = originalTweets || model;
 
 		if (query.length > 0) {
 			this.set('hasSearchQuery', true);
@@ -39,10 +42,10 @@ var ApplicationController = {
 			var filterField = isEmail ? 'email' : 'content';
 			this.set('searchType', filterField);
 			
-			var tweetFilter = model.filterBy(filterField, this.get('searchQuery'));
+			var tweetFilter = model.filterBy(filterField, query);
 			this.set('controllers.tweet.model', tweetFilter);
 		} else {
-			model.clear();
+			this.set('controllers.tweet.model', originalTweets);
 			this.set('hasSearchQuery', false);
 
 		}
